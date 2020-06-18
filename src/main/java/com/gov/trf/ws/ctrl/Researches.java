@@ -26,12 +26,12 @@ public class Researches {
 	private static String url = "https://viacep.com.br/ws/";
 	
 	   @RequestMapping(value = "cod/{cep}", method = RequestMethod.GET,produces = { "application/json"})
-	   public Object pesquisaCep(@PathVariable("cep") Integer cep) {
-	      return restTemplate.getForObject(this.url + cep +"/json",Search.class);
+	   public Search pesquisaCep(@PathVariable("cep") Integer cep) {
+		   return restTemplate.getForObject(this.url + cep +"/json",Search.class);
 	   }
 	   
 	   @RequestMapping(value = "address/{uf}/{cidade}/{logradouro}", method = RequestMethod.GET,produces = { "application/json"})
-	   public Object pesquisaEndereco(@PathVariable("uf") String uf, @PathVariable("cidade") String cidade, @PathVariable("logradouro") String logradouro) {
+	   public Search[] pesquisaEndereco(@PathVariable("uf") String uf, @PathVariable("cidade") String cidade, @PathVariable("logradouro") String logradouro) {
 	      return restTemplate.getForObject(this.url + uf + "/" + cidade + "/" + logradouro +"/json",Search[].class);
 	   }
 	   
