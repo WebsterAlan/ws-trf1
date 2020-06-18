@@ -17,7 +17,7 @@ import org.springframework.web.client.RestTemplate;
 import com.gov.trf.ws.entity.Search;
 
 @RestController
-@RequestMapping("/teste")
+@RequestMapping("/search")
 public class Researches {
 
 	@Autowired
